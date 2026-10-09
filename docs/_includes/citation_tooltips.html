@@ -1,0 +1,98 @@
+{%- comment -%}
+  Hover/focus tooltips for in-text citations such as [(5)](https://doi.org/...).
+  The reference list is read from references.md at build time, so nothing is fetched at runtime.
+{%- endcomment -%}
+{%- assign ref_page = site.pages | where: "path", "references.md" | first -%}
+{%- assign ref_blocks = ref_page.content | split: "
+
+" -%}
+<script id="claim-references" type="application/json">
+{
+{%- assign first_ref = true -%}
+{%- for block in ref_blocks -%}
+  {%- assign block = block | strip -%}
+  {%- if block contains "](" and block contains "[" -%}
+    {%- assign parts = block | remove_first: "[" | split: "](" -%}
+    {%- assign cite = parts[0] | strip -%}
+    {%- assign num = cite | split: "." | first -%}
+    {%- assign text = cite | remove_first: num | remove_first: "." | strip -%}
+    {%- if first_ref == false -%},{%- endif -%}
+    {%- assign first_ref = false -%}
+    {{ num | jsonify }}: {{ text | jsonify }}
+  {%- endif -%}
+{%- endfor -%}
+}
+</script>
+<style>
+  .claim-cite-tip {
+    position: absolute; z-index: 1000; max-width: min(34rem, calc(100vw - 1.5rem));
+    padding: .6rem .8rem; border-radius: 4px; font-size: .75rem; line-height: 1.45;
+    color: #fff; background: #27262b; box-shadow: 0 2px 10px rgba(0,0,0,.3);
+    pointer-events: none; opacity: 0; transition: opacity .12s;
+  }
+  .claim-cite-tip.is-visible { opacity: 1; }
+  .claim-cite-tip p { margin: 0; }
+  .claim-cite-tip p + p { margin-top: .4rem; }
+</style>
+<script>
+(function () {
+  var refs;
+  try { refs = JSON.parse(document.getElementById('claim-references').textContent); } catch (e) { return; }
+
+  // Expand "(5)", "(5, 7)" and "(5-8)" / "(5–8)" into reference numbers.
+  function numbers(label) {
+    var m = label.trim().match(/^\(\s*([\d\s,–—-]+)\s*\)$/);
+    if (!m) return null;
+    var out = [];
+    m[1].split(',').forEach(function (part) {
+      var r = part.trim().split(/\s*[–—-]\s*/);
+      var a = parseInt(r[0], 10), b = parseInt(r[1] || r[0], 10);
+      if (isNaN(a) || isNaN(b) || b < a || b - a > 50) return;
+      for (var n = a; n <= b; n++) out.push(String(n));
+    });
+    return out;
+  }
+
+  var tip = document.createElement('div');
+  tip.className = 'claim-cite-tip';
+  tip.setAttribute('role', 'tooltip');
+  tip.id = 'claim-cite-tip';
+  document.body.appendChild(tip);
+
+  function show(link, nums) {
+    tip.textContent = '';
+    nums.forEach(function (n) {
+      var p = document.createElement('p');
+      p.textContent = n + '. ' + refs[n];
+      tip.appendChild(p);
+    });
+    var r = link.getBoundingClientRect();
+    var left = r.left + window.scrollX;
+    tip.style.left = '0'; tip.style.top = '0';
+    tip.classList.add('is-visible');
+    var w = tip.offsetWidth, h = tip.offsetHeight;
+    left = Math.max(window.scrollX + 8, Math.min(left, window.scrollX + document.documentElement.clientWidth - w - 8));
+    var top = r.top + window.scrollY - h - 8;
+    if (top < window.scrollY + 4) top = r.bottom + window.scrollY + 8;  // not enough room above
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+    link.setAttribute('aria-describedby', tip.id);
+  }
+  function hide(link) {
+    tip.classList.remove('is-visible');
+    if (link) link.removeAttribute('aria-describedby');
+  }
+
+  document.querySelectorAll('.main-content a[href]').forEach(function (a) {
+    var nums = numbers(a.textContent);
+    if (!nums) return;
+    nums = nums.filter(function (n) { return refs[n]; });
+    if (!nums.length) return;
+    a.addEventListener('mouseenter', function () { show(a, nums); });
+    a.addEventListener('mouseleave', function () { hide(a); });
+    a.addEventListener('focus', function () { show(a, nums); });
+    a.addEventListener('blur', function () { hide(a); });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+})();
+</script>
