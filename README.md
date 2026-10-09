@@ -22,11 +22,11 @@ The site includes:
 
 This website accompanies the following article. If you use this resource, please cite:
 
-Akinci D'Antonoli T, Adams LC, Amyar A, et al. Checklist for Artificial Intelligence in Medical Imaging (CLAIM): Explanation, Elaboration, and Examples. *Radiol Artif Intell* 2026:e260835. [https://doi.org/10.1148/ryai.260835](https://doi.org/10.1148/ryai.260835)
+Akinci D'Antonoli T, Adams LC, Amyar A, et al. Checklist for Artificial Intelligence in Medical Imaging (CLAIM): Explanation, Elaboration, and Examples. *Radiol Artif Intell* 2026; 8:e260835. [https://doi.org/10.1148/ryai.260835](https://doi.org/10.1148/ryai.260835)
 
 ## Reference
 
-Tejani AS, Klontzas ME, Gatti AA, et al. Checklist for Artificial Intelligence in Medical Imaging (CLAIM): 2024 Update. *Radiol Artif Intell* 2024;6(4):e240300. [https://doi.org/10.1148/ryai.240300](https://doi.org/10.1148/ryai.240300)
+Tejani AS, Klontzas ME, Gatti AA, et al. Checklist for Artificial Intelligence in Medical Imaging (CLAIM): 2024 Update. *Radiol Artif Intell* 2024; 6:e240300. [https://doi.org/10.1148/ryai.240300](https://doi.org/10.1148/ryai.240300)
 
 ## Links
 

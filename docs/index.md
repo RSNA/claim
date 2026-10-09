@@ -14,7 +14,7 @@ nav_order: 1
 **Quick links:** [CLAIM Guideline site](https://pubs.rsna.org/page/ai/claim) &nbsp;·&nbsp; [Checklist 2024 (Word)](https://pubs.rsna.org/pb-assets/AI/CLAIM/CLAIMChecklist-6142024-1718376172847.docx) &nbsp;·&nbsp; [CLAIM 2024 Update](https://pubs.rsna.org/doi/10.1148/ryai.240300) &nbsp;·&nbsp; [Published article](https://doi.org/10.1148/ryai.260835)
 
 {: .highlight }
-**How to cite:** Akinci D'Antonoli T, Adams LC, Amyar A, et al. Checklist for Artificial Intelligence in Medical Imaging (CLAIM): Explanation, Elaboration, and Examples. *Radiol Artif Intell* 2026:e260835. [https://doi.org/10.1148/ryai.260835](https://doi.org/10.1148/ryai.260835)
+**How to cite:** Akinci D'Antonoli T, Adams LC, Amyar A, et al. Checklist for Artificial Intelligence in Medical Imaging (CLAIM): Explanation, Elaboration, and Examples. *Radiol Artif Intell* 2026; 8:e260835. [https://doi.org/10.1148/ryai.260835](https://doi.org/10.1148/ryai.260835)
 
 ---
 
