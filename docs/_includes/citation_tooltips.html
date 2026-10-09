@@ -39,7 +39,7 @@
   var refs;
   try { refs = JSON.parse(document.getElementById('claim-references').textContent); } catch (e) { return; }
 
-  // Expand "(5)", "(5, 7)" and "(5-8)" / "(5–8)" into reference numbers.
+  /* Expand "(5)", "(5, 7)" and "(5-8)" / "(5–8)" into reference numbers. */
   function numbers(label) {
     var m = label.trim().match(/^\(\s*([\d\s,–—-]+)\s*\)$/);
     if (!m) return null;
@@ -73,7 +73,7 @@
     var w = tip.offsetWidth, h = tip.offsetHeight;
     left = Math.max(window.scrollX + 8, Math.min(left, window.scrollX + document.documentElement.clientWidth - w - 8));
     var top = r.top + window.scrollY - h - 8;
-    if (top < window.scrollY + 4) top = r.bottom + window.scrollY + 8;  // not enough room above
+    if (top < window.scrollY + 4) top = r.bottom + window.scrollY + 8;  /* not enough room above */
     tip.style.left = left + 'px';
     tip.style.top = top + 'px';
     link.setAttribute('aria-describedby', tip.id);
