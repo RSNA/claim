@@ -18,6 +18,10 @@ The site includes:
 - **CLAIM 2024 Items** — All 44 items grouped by section (Title/Abstract, Introduction, Methods, Results, Discussion, Other Information). Each item page contains the item definition, explanation and elaboration, and illustrative examples from the literature.
 - **References** — Full reference list for all cited works.
 
+## CLAIM checklist skill for language models
+
+The [`skills/`](skills/) folder contains an Agent Skill that helps large language models such as Claude complete or assess the CLAIM 2024 checklist for a manuscript, with item-specific rules for commonly misjudged items. See [skills/README.md](skills/README.md) for installation and usage.
+
 ## Citation
 
 This website accompanies the following article. If you use this resource, please cite:
@@ -49,6 +53,7 @@ Tejani AS, Klontzas ME, Gatti AA, et al. Checklist for Artificial Intelligence i
 │   ├── claim-items.md     # Items overview (grouped by section)
 │   ├── item-01.md … item-44.md  # Individual item pages
 │   └── references.md      # References
+├── skills/                # Agent Skill for completing the checklist with LLMs
 ├── .github/workflows/     # GitHub Pages deployment workflow
 ├── start.sh               # One-command local server + tunnel script
 ├── CITATION.cff           # Citation metadata
@@ -82,6 +87,6 @@ Alternatively, use `./start.sh` from the repository root to start Jekyll and a C
 This repository uses a dual license:
 
 - **Content** (`claim_full.md`, `README.md`, and the `docs/` site pages, including the checklist elaborations) is licensed under [**CC BY-NC-ND 4.0**](LICENSE) (Attribution-NonCommercial-NoDerivatives).
-- **Code** (site tooling and scripts, including `start.sh`, `docs/_config.yml`, `docs/_plugins/`, `docs/_sass/`, `docs/_includes/`, `.github/workflows/`, and `Gemfile`) is licensed under the [**MIT License**](LICENSE-CODE).
+- **Code** (site tooling and scripts, including `start.sh`, `docs/_config.yml`, `docs/_plugins/`, `docs/_sass/`, `docs/_includes/`, `.github/workflows/`, and `Gemfile`) and the language model skill in `skills/` are licensed under the [**MIT License**](LICENSE-CODE).
 
-Illustrative examples and excerpts quoted from third-party published literature retain their original copyright and license terms as noted in the text and [references](docs/references.md); they are not relicensed under CC BY-NC-ND 4.0. CLAIM guideline text reproduced verbatim is included by permission of the Radiological Society of North America (RSNA) and is likewise not covered by the CC BY-NC-ND 4.0 grant.
+Illustrative examples and excerpts quoted from third-party published literature retain their original copyright and license terms as noted in the text and [references](docs/references.md); they are not relicensed under CC BY-NC-ND 4.0. CLAIM guideline text reproduced verbatim is included by permission of the Radiological Society of North America (RSNA) and is likewise not covered by the CC BY-NC-ND 4.0 or MIT grants.
