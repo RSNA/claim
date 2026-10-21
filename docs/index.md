@@ -41,6 +41,7 @@ Text of the CLAIM guideline is included verbatim by permission of the Radiologic
   1. The item's **definition** (as specified in the CLAIM 2024 guideline)
   2. An **explanation and elaboration** of the item's intent
   3. Illustrative **examples from the literature** demonstrating appropriate adherence
+- **[Checklist Skill for LLMs](llm-skill.md)** — Download and installation of a skill that helps language models complete or assess the checklist.
 - **[References](references.md)** — Full reference list.
 
 {: .note }

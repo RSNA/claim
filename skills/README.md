@@ -22,7 +22,7 @@ curl -fsSL https://raw.githubusercontent.com/RSNA/claim/main/skills/claim-checkl
 
 ### Claude apps (claude.ai, desktop)
 
-Zip the `claim-checklist` folder and upload the archive in the Skills section of Settings:
+Download the archive from the [website](https://rsna.github.io/claim/llm-skill.html) and upload it in the Skills section of Settings. To build it yourself, zip the `claim-checklist` folder:
 
 ```bash
 zip -r claim-checklist.zip claim-checklist

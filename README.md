@@ -16,6 +16,7 @@ The site includes:
 
 - **CLAIM 2024 Checklist** — Interactive checklist table matching the official format, with fillable page/line fields, No and NA checkboxes, and a Print / Export PDF button. Each item links to its elaboration page.
 - **CLAIM 2024 Items** — All 44 items grouped by section (Title/Abstract, Introduction, Methods, Results, Discussion, Other Information). Each item page contains the item definition, explanation and elaboration, and illustrative examples from the literature.
+- **Checklist Skill for LLMs** — Download and installation instructions for the CLAIM checklist skill for language models.
 - **References** — Full reference list for all cited works.
 
 ## CLAIM checklist skill for language models
@@ -52,6 +53,7 @@ Tejani AS, Klontzas ME, Gatti AA, et al. Checklist for Artificial Intelligence i
 │   ├── checklist.md       # Interactive CLAIM 2024 Checklist
 │   ├── claim-items.md     # Items overview (grouped by section)
 │   ├── item-01.md … item-44.md  # Individual item pages
+│   ├── llm-skill.md       # Checklist skill download page
 │   └── references.md      # References
 ├── skills/                # Agent Skill for completing the checklist with LLMs
 ├── .github/workflows/     # GitHub Pages deployment workflow
